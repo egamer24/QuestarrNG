@@ -120,6 +120,10 @@ describe("title-utils", () => {
         )
       ).toBe(false);
       expect(releaseMatchesGame("1-2-Switch [0100000000010000][v0].nsp", "1-2-Switch")).toBe(true);
+      // Possessives match with the apostrophe dropped or spaced
+      expect(releaseMatchesGame("Luigis.Mansion.3.NSW-VENOM", "Luigi's Mansion 3")).toBe(true);
+      expect(releaseMatchesGame("Luigi s Mansion 3 [NSP]", "Luigi's Mansion 3")).toBe(true);
+      expect(releaseMatchesGame("Little.Kings.Story-GOG", "Little King's Story")).toBe(true);
       // Accented titles still match their plain-ASCII release names
       expect(releaseMatchesGame("[Switch] Pokemon Sword [D86E5AFC]", "Pokémon Sword")).toBe(true);
       expect(
